@@ -1,0 +1,43 @@
+#compdef stargate.exp sg=stargate.exp
+# ------------------------------------------------------------------------------
+# Description
+# -----------
+#
+#  Completion script for brew (https://github.com/mxcl/homebrew).
+#
+#  Source: https://github.com/mxcl/homebrew/blob/master/Library/Contributions/brew_zsh_completion.zsh
+#
+# ------------------------------------------------------------------------------
+# Authors
+# -------
+#
+#  * Gregoire Morpain (https://github.com/wnkz)
+#
+# ------------------------------------------------------------------------------
+# Generate server file with:
+#   sg \? | grep '  - ' | grep -v '#' | cut -d ' ' -f 4 | sed -e '/^M/d' > ~/.bin/servers.list # ^C
+
+
+_stargate.exp() { 
+    local curcontext="$curcontext" state line
+    typeset -A opt_args
+ 
+    _arguments \
+        '1: :->servers'
+ 
+    case $state in
+    servers)
+        _arguments "1:Servers:(`cat ~/.bin/servers.list`)"
+    ;;
+    esac 
+}
+ 
+_stargate.exp "$@"
+
+# Local Variables:
+# mode: Shell-Script
+# sh-indentation: 2
+# indent-tabs-mode: nil
+# sh-basic-offset: 2
+# End:
+# vim: ft=zsh sw=2 ts=2 et
