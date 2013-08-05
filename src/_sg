@@ -15,7 +15,7 @@
 #
 # ------------------------------------------------------------------------------
 # Generate server file with:
-#   sg \? | grep '  - ' | grep -v '#' | cut -d ' ' -f 4 | sed -e '/^M/d' > ~/.bin/servers.list # ^C
+#   sg \? | grep '  - ' | grep -v '#' | cut -d ' ' -f 4 | dos2unix > ~/.bin/servers.list # ^C
 
 
 _stargate.exp() { 
